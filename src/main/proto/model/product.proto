@@ -11,7 +11,7 @@ message Product{
     double price = 3;
     string explanation = 4;
 }
-
+//Add Product Request-Response
 message AddProductRequest{
     Product product = 1;
 }
@@ -20,10 +20,49 @@ message AddProductResponse{
     Product product = 1;
 }
 
+//Delete Product Request-Response
+message DeleteProductRequest{
+    string productId = 1;
+}
+
+message DeleteProductResponse{
+    string productId = 1;
+}
+
+//Update Product Request-Response
+message UpdateProductRequest{
+    Product product = 1;
+}
+
+message UpdateProductResponse{
+    Product product = 1;
+}
+
+//Read Product Request-Response
+message ReadProductRequest{
+    string productId = 1;
+}
+
+message ReadProductResponse{
+    Product product = 1;
+}
+
+//List Products Request-Response
+message ListProductRequest{
+
+}
+
+message ListProductsResponse{
+    Product product = 1;
+}
+
+
+
+
 service ProductService{
     rpc addProduct (AddProductRequest) returns (AddProductResponse);
-    //rpc deleteProduct (MessageProduct) returns (Information);
-    //rpc deleteProductWithId (IdRequest) returns (Information);
-    //rpc updateProduct (MessageProduct) returns (Information);
-   // rpc readProduct (IdRequest) returns (MessageProduct);
+    rpc deleteProduct (DeleteProductRequest) returns (DeleteProductResponse);
+    rpc updateProduct (UpdateProductRequest) returns (UpdateProductResponse);
+    rpc readProduct (ReadProductRequest) returns (ReadProductResponse);
+    rpc listProducts(ListProductRequest) returns (stream ListProductsResponse);
 }
