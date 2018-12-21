@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package model;
+
+option java_package = "com.proto.model.user";
+option java_multiple_files = true;
+
+
+message User{
+
+    string id = 1;
+    string username = 2;
+    string password = 3;
+    string email = 4;
+    repeated string phoneNumber = 5;
+
+    enum UserType{
+        UNKNOWN_USER_TYPE = 0;
+        USER_ADMIN = 1;
+        USER_SELLER = 2;
+        USER_BUYER = 3;
+    }
+
+    UserType userType = 6;
+
+}
+
+
+
+service UserService{
+
+}
