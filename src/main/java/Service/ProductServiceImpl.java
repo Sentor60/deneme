@@ -11,6 +11,7 @@ import io.grpc.stub.StreamObserver;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+
 import static com.mongodb.client.model.Filters.eq;
 
 public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBase {
@@ -18,6 +19,7 @@ public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBas
     private MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
     private MongoDatabase database = mongoClient.getDatabase("mydb");
     private MongoCollection<Document> collection = database.getCollection("product");
+
 
     @Override
     public void addProduct(AddProductRequest request, StreamObserver<AddProductResponse> responseObserver) {
@@ -42,8 +44,6 @@ public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBas
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
-
-
 
     @Override
     public void deleteProduct(DeleteProductRequest request, StreamObserver<DeleteProductResponse> responseObserver) {

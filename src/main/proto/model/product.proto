@@ -57,8 +57,6 @@ message ListProductsResponse{
 }
 
 
-
-
 service ProductService{
     rpc addProduct (AddProductRequest) returns (AddProductResponse);
     rpc deleteProduct (DeleteProductRequest) returns (DeleteProductResponse);
